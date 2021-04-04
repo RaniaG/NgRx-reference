@@ -1,0 +1,23 @@
+<div class="card">
+
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+
+    <div class="card-body" *ngIf="books?.length">
+        <div class="list-group">
+            <button class="list-group-item list-group-item-action rounded-0" *ngFor="let book of books" (click)="onClick(book.id)">{{ book.title }}
+        </button>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-4 text-right">
+                <button class="btn btn-primary">
+            Add
+          </button>
+            </div>
+        </div>
+    </div>
+</div>
