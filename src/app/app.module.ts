@@ -20,7 +20,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 @NgModule({
   imports: [
     BrowserModule,
@@ -28,12 +28,13 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ router: routerReducer }, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
   ],
   declarations: [
     AppComponent,
